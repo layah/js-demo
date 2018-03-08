@@ -14,7 +14,25 @@ function sort(nm){
 	return nm;
 };
 console.log(sort(p).reverse());
+//快速排序
+function qsort(arr){
+	if(arr.length<=1){return arr;}
+	var left=[],
+	right=[],
+	item=arr.splice(0,1)[0];
 
+	for(var i=0,len=arr.length;i<len;i++){
+		if(arr[i]<=item){
+			left.push(arr[i])
+		}
+		else{
+			right.push(arr[i])
+		}
+	}
+
+	return qsort(left).concat([item],qsort(right));
+
+}
 // 数组去重
 function qc(arr){
 	var attr=[];
